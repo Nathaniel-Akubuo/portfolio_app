@@ -15,132 +15,109 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  final darkBrown = Color(0xffAC714F);
-  final lightBrown = Color(0xffFFE7D4);
+  final kDarkBrown = Color(0xffAC714F);
+  final kLightBrown = Color(0xffFFE7D4);
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context).size;
+    final contactInfoTextStyle = TextStyle(color: kDarkBrown, fontSize: 17);
     return SafeArea(
       child: Scaffold(
-        body: Row(
+        backgroundColor: kDarkBrown,
+        body: Column(
           children: [
-            Container(
-              width: mediaQuery.width * 0.5,
-              color: darkBrown,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 150,
-                    child: Container(
-                      height: 150,
-                      width: 150,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CircleAvatar(
-                          backgroundColor: darkBrown,
-                          backgroundImage: AssetImage('images/me.jpg'),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                color: kDarkBrown,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundColor: kDarkBrown,
+                            backgroundImage: AssetImage('images/me.jpg'),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: mediaQuery.height * 0.05),
-                  Column(
-                    children: [
-                      Text(
-                        'NATHANIEL',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: lightBrown),
-                      ),
-                      Text(
-                        'AKUBUO',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: lightBrown),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'FLUTTER DEVELOPER',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: lightBrown,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                    child: Divider(
-                      thickness: 4,
-                      color: Color(0xffFFE7D4),
+                    SizedBox(height: 15),
+                    Text(
+                      'NATHANIEL AKUBUO',
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: kLightBrown),
                     ),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'CONTACT',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: lightBrown,
-                            fontWeight: FontWeight.bold),
+                    SizedBox(height: 15),
+                    Text(
+                      'FLUTTER DEVELOPER',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: kLightBrown,
                       ),
-                      Text(
-                        'INFORMATION',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: lightBrown,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Email: nakubuo@gmail.com',
-                          style: TextStyle(color: lightBrown, fontSize: 15),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'LinkedIn: linkedin.com/in/nathanielakubuo/',
-                          style: TextStyle(color: lightBrown, fontSize: 15),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'GitHub: github.com/Nathaniel-Akubuo/',
-                          style: TextStyle(color: lightBrown, fontSize: 15),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Twitter: twitter.com/NathanielAkubuo',
-                          style: TextStyle(color: lightBrown, fontSize: 15),
-                        ),
-                      ],
                     ),
-                  )
-                ],
+                    SizedBox(height: 30)
+                  ],
+                ),
               ),
             ),
-            Container(
-              width: mediaQuery.width * 0.5,
-              color: lightBrown,
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: kLightBrown,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 30),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'CONTACT INFORMATION',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    color: kDarkBrown,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 25),
+                          Text('Email: nakubuo@gmail.com',
+                              style: contactInfoTextStyle),
+                          SizedBox(height: 25),
+                          Text('LinkedIn: linkedin.com/in/nathanielakubuo/',
+                              style: contactInfoTextStyle),
+                          SizedBox(height: 25),
+                          Text('GitHub: github.com/Nathaniel-Akubuo/',
+                              style: contactInfoTextStyle),
+                          SizedBox(height: 25),
+                          Text('Twitter: twitter.com/NathanielAkubuo',
+                              style: contactInfoTextStyle),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
             )
           ],
         ),
